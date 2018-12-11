@@ -26,26 +26,21 @@ window.onload = function () {
             document.getElementsByTagName('head')[0].appendChild(_script);
             if (MiniSite.Browser.ie) {
                 _script.onreadystatechange = function () {
-                    if (this.readyState == 'loaded' || this.readyStaate == 'complete') {
+                    if (this.readyState == 'loaded' || this.readyState == 'complete') {
                         //fCallback();
-                        if (fCallback != undefined) {
-                            fCallback();
-                        }
+                        if (fCallback && typeof fCallback === 'function') fCallback();
 
                     }
                 };
             } else if (MiniSite.Browser.moz) {
                 _script.onload = function () {
                     //fCallback(); 
-                    if (fCallback != undefined) {
-                        fCallback();
-                    }
+                    if (fCallback && typeof fCallback === 'function') fCallback();
                 };
             } else {
                 //fCallback();
-                if (fCallback != undefined) {
-                    fCallback();
-                }
+                if (fCallback && typeof fCallback === 'function') fCallback();
+                
             }
         }
     };
